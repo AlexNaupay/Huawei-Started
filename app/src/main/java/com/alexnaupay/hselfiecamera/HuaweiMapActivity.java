@@ -11,7 +11,10 @@ import com.huawei.hms.maps.HuaweiMap;
 import com.huawei.hms.maps.MapsInitializer;
 import com.huawei.hms.maps.OnMapReadyCallback;
 import com.huawei.hms.maps.SupportMapFragment;
+import com.huawei.hms.maps.model.BitmapDescriptorFactory;
 import com.huawei.hms.maps.model.LatLng;
+import com.huawei.hms.maps.model.Marker;
+import com.huawei.hms.maps.model.MarkerOptions;
 
 public class HuaweiMapActivity extends AppCompatActivity implements OnMapReadyCallback {
 
@@ -47,8 +50,12 @@ public class HuaweiMapActivity extends AppCompatActivity implements OnMapReadyCa
     public void onMapReady(HuaweiMap huaweiMap) {
         Log.d(TAG, "onMapReady: ");
         map = huaweiMap;
-        map.setMapType(HuaweiMap.MAP_TYPE_SATELLITE);
+        map.setMapType(HuaweiMap.MAP_TYPE_TERRAIN);
         map.getUiSettings().setAllGesturesEnabled(true);
+
+        Marker marker = map.addMarker(new MarkerOptions().position(new LatLng(-15.8369, -72.1326))
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.epicenter_yellow)));
+        marker.setSnippet("Sur");
 
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(-15.8369, -72.1326), 5));
     }
