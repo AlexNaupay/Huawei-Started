@@ -1,17 +1,21 @@
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-    //id ("com.huawei.agconnect")
+
+    id ("com.huawei.agconnect")
 }
+
+//apply ( plugin = "com.huawei.agconnect")
 
 android {
     namespace = "com.alexnaupay.hselfiecamera"
-    compileSdk = 35
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.alexnaupay.hselfiecamera"
         minSdk = 26
-        targetSdk = 35
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -68,6 +72,8 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+    implementation (libs.androidx.appcompat)  // SupportActionBar
+
     implementation ("com.huawei.agconnect:agconnect-core:1.9.1.303")
     //Account Kit
     implementation("com.huawei.hms:hwid:6.11.0.300")
@@ -75,13 +81,13 @@ dependencies {
     implementation("com.huawei.hms:push:6.11.0.300")
 
     // Import the base SDK. And face APIs
-    implementation("com.huawei.hms:ml-computer-vision-face:3.11.0.301")
+    /*implementation("com.huawei.hms:ml-computer-vision-face:3.11.0.301")
     // Import the contour and key point detection model package.
     implementation("com.huawei.hms:ml-computer-vision-face-shape-point-model:3.7.0.301")
     // Import the facial expression detection model package.
     implementation("com.huawei.hms:ml-computer-vision-face-emotion-model:3.7.0.301")
     // Import the facial feature detection model package.
-    implementation("com.huawei.hms:ml-computer-vision-face-feature-model:3.7.0.301")
+    implementation("com.huawei.hms:ml-computer-vision-face-feature-model:3.7.0.301")*/
 
     implementation("com.huawei.hms:maps:6.11.2.301")  // Map Kit
 }

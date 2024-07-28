@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="320dp">
+        <FrameLayout
+            android:id="@+id/map_frame"
+            android:name="com.huawei.hms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            map:cameraTargetLat="48.893478"
+            map:cameraTargetLng="2.334595"
+            map:cameraZoom="10"/>
+    </LinearLayout>
+
+</RelativeLayout>
