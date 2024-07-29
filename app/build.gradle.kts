@@ -74,11 +74,11 @@ dependencies {
 
     implementation (libs.androidx.appcompat)  // SupportActionBar
 
-    implementation ("com.huawei.agconnect:agconnect-core:1.9.1.303")
+    implementation (libs.agconnect.core)
     //Account Kit
-    implementation("com.huawei.hms:hwid:6.11.0.300")
+    //implementation(libs.hwid)
     //Push Kit
-    implementation("com.huawei.hms:push:6.11.0.300")
+    implementation(libs.push)
 
     // Import the base SDK. And face APIs
     /*implementation("com.huawei.hms:ml-computer-vision-face:3.11.0.301")
@@ -89,5 +89,5 @@ dependencies {
     // Import the facial feature detection model package.
     implementation("com.huawei.hms:ml-computer-vision-face-feature-model:3.7.0.301")*/
 
-    implementation("com.huawei.hms:maps:6.11.2.301")  // Map Kit
+    implementation(libs.maps)  // Map Kit
 }
