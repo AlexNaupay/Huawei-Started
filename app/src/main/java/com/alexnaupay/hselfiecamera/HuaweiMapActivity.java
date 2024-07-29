@@ -34,7 +34,6 @@ public class HuaweiMapActivity extends AppCompatActivity implements OnMapReadyCa
         setContentView(R.layout.huawei_map_activity);
 
         MapsInitializer.initialize(this);
-        subscribe("hTopic");
     }
 
     @Override
@@ -48,6 +47,8 @@ public class HuaweiMapActivity extends AppCompatActivity implements OnMapReadyCa
                 .add(R.id.map_frame, supportMapFragment)
                 .commit();
         supportMapFragment.getMapAsync(this);
+
+        subscribe("hTopic");
     }
 
 

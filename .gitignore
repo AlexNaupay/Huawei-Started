@@ -15,7 +15,7 @@
 local.properties
 secrets.properties
 /.idea/other.xml
-
+keystore.properties
 # Remove from history
 #git filter-branch --force --index-filter \
 #  'git rm --cached --ignore-unmatch FILENAME' \

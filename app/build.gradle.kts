@@ -1,12 +1,17 @@
+import java.util.Properties
 
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
 
     id ("com.huawei.agconnect")
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 }
 
-//apply ( plugin = "com.huawei.agconnect")
+// Load keystore properties from keystore.properties file
+val keystoreFile = project.rootProject.file("keystore.properties")
+val keystoreProperties = Properties()
+keystoreProperties.load(keystoreFile.inputStream())
 
 android {
     namespace = "com.alexnaupay.hselfiecamera"
@@ -25,13 +30,26 @@ android {
         }
     }
 
+    signingConfigs {
+        create("config") {
+            keyAlias = keystoreProperties["keyAlias"] as String
+            keyPassword = keystoreProperties["keyPassword"] as String
+            storeFile = file(keystoreProperties["storeFile"] as String)
+            storePassword = keystoreProperties["storePassword"] as String
+        }
+    }
+
     buildTypes {
         release {
+            signingConfig = signingConfigs.getByName("config")
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+        }
+        debug {
+            signingConfig = signingConfigs.getByName("config")
         }
     }
     compileOptions {

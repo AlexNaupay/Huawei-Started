@@ -6,20 +6,6 @@
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
-    <!--
-    Since Push SDK 6.1.0.300, the <queries> element is preset. In this case, you are advised to integrate the Push SDK of the latest version.
-    In Android 11, the way for an app to query other apps on the user device and interact with them has been changed.
-    If targetSdkVersion is 30 or later for your app, you need to add the <queries> element to manifest in the AndroidManifest.xml file,
-    so that your app can access HMS Core (APK). The <queries> element requires the following:
-    Your Android Studio version is 3.6.1 or later.
-    Your Android Gradle plugin version is 3.5.4 or later.
-    -->
-    <queries>
-        <intent>
-            <action android:name="com.huawei.hms.core.aidlservice" />
-        </intent>
-    </queries>
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -30,6 +16,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HSelfieCamera"
         tools:targetApi="31">
+
+        <!-- Push kit initialization -->
+        <meta-data
+            android:name="push_kit_auto_init_enabled"
+            android:value="true" />
+
         <activity
             android:name=".HuaweiMapActivity"
             android:exported="true"
@@ -51,5 +43,20 @@
         </service>
 
     </application>
+
+    <!--
+    Since Push SDK 6.1.0.300, the <queries> element is preset. In this case, you are advised to integrate the Push SDK of the latest version.
+    In Android 11, the way for an app to query other apps on the user device and interact with them has been changed.
+    If targetSdkVersion is 30 or later for your app, you need to add the <queries> element to manifest in the AndroidManifest.xml file,
+    so that your app can access HMS Core (APK). The <queries> element requires the following:
+    Your Android Studio version is 3.6.1 or later.
+    Your Android Gradle plugin version is 3.5.4 or later.
+    -->
+    <queries>
+        <intent>
+            <action android:name="com.huawei.hms.core.aidlservice" />
+        </intent>
+    </queries>
+
 
 </manifest>
